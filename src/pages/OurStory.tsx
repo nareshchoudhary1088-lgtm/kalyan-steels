@@ -26,7 +26,7 @@ const OurStory = () => {
               <p className="text-secondary uppercase tracking-[0.4em] font-bold mb-4 text-xs sm:text-sm">Founding Legacy & Growth</p>
               <h1 className="text-primary text-5xl sm:text-7xl lg:text-8xl font-rozha leading-[1.1] mb-6">Our Story</h1>
               <p className="text-slate-600 text-lg sm:text-xl font-google max-w-xl leading-relaxed">
-                From a local steel merchant to Visakhapatnam's premier source for architectural and industrial stainless steel.
+                From a local steel merchant to Srikakulam's premier source for architectural and industrial stainless steel.
               </p>
             </div>
             <div className="hidden lg:block text-right pb-2">
@@ -45,16 +45,16 @@ const OurStory = () => {
                 <div className="space-y-6">
                   <h2 className="text-3xl font-rozha text-primary">The Vision of Quality</h2>
                   <p className="text-slate-700 text-lg leading-relaxed font-google">
-                    Founded in <span className="font-bold text-primary">2011</span> by <span className="font-bold text-primary">Mr. Pataram Choudhary</span>, Kiran Steels was established with a singular mission: to provide Visakhapatnam with unmatched access to India's finest Jindal Stainless Steel. 
+                    Founded in <span className="font-bold text-primary">2018</span> by <span className="font-bold text-primary">Mr. Dilip Choudhary</span>, Kalyan Steels was established with a singular mission: to provide Srikakulam with unmatched access to India's finest Jindal Stainless Steel. 
                   </p>
                   <p className="text-slate-700 text-lg leading-relaxed font-google">
-                    Starting as a dedicated steel distributor in Gopalapatnam, our firm quickly became synonymous with reliability. We recognized that the growing infrastructure of Andhra Pradesh required not just material, but expertise in quality grades like <span className="font-bold">304, 316, and JT</span>.
+                    Starting as a dedicated steel distributor in Patrunivalasa, our firm quickly became synonymous with reliability. We recognized that the growing infrastructure of Andhra Pradesh required not just material, but expertise in quality grades like <span className="font-bold">304, 316, and JT</span>.
                   </p>
                 </div>
                 <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-2xl">
                   <img 
                     src={inventoryImg} 
-                    alt="Kiran Steels Inventory" 
+                    alt="Kalyan Steels Inventory" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   />
                 </div>
@@ -65,10 +65,10 @@ const OurStory = () => {
                 <div className="md:order-2 space-y-6">
                   <h2 className="text-3xl font-rozha text-primary">Mastering the Art of Fabrication</h2>
                   <p className="text-slate-700 text-lg leading-relaxed font-google">
-                    Evolution is at our core. Beyond inventory, we expanded into <span className="font-bold">expert fabrication</span>, blending industrial durability with architectural beauty. Today, Kiran Steels is the prime source for custom Stainless Steel Gates, Railings, and Glass systems in the region.
+                    Evolution is at our core. Beyond inventory, we expanded into <span className="font-bold">expert fabrication</span>, blending industrial durability with architectural beauty. Today, Kalyan Steels is the prime source for custom Stainless Steel Gates, Railings, and Glass systems in the region.
                   </p>
                   <p className="text-slate-700 text-lg leading-relaxed font-google">
-                    From luxurious <span className="font-bold text-primary">Gold Coated Railings</span> to functional Main Doors and bespoke furniture, our workshop located near the Gopalapatnam Police Station serves as a hub for craftsmanship and innovation in Visakhapatnam's steel legacy.
+                    From luxurious <span className="font-bold text-primary">Gold Coated Railings</span> to functional Main Doors and bespoke furniture, our workshop located near the Patrunivalasa Police Station serves as a hub for craftsmanship and innovation in Srikakulam's steel legacy.
                   </p>
                 </div>
                 <div className="md:order-1 rounded-2xl overflow-hidden aspect-[16/9] md:aspect-[4/5] shadow-2xl">
@@ -106,13 +106,13 @@ const OurStory = () => {
 
               {/* Closing */}
               <div className="text-center max-w-3xl mx-auto space-y-8">
-                <h2 className="text-4xl font-rozha text-primary leading-tight">Building the Future of Visakhapatnam</h2>
+                <h2 className="text-4xl font-rozha text-primary leading-tight">Building the Future of Srikakulam</h2>
                 <p className="text-slate-600 text-xl leading-relaxed italic font-google">
                   "Our goal is not just to sell steel, but to build trust that lasts as long as the structures we help create."
                 </p>
                 <div className="pt-4">
-                   <p className="text-slate-700 text-lg font-google">Kiran Steels — Opposite Police Station, Gopalapatnam</p>
-                   <p className="text-slate-500 text-sm font-google mt-1 tracking-widest uppercase">Visakhapatnam, Andhra Pradesh</p>
+                   <p className="text-slate-700 text-lg font-google">Kalyan Steels — Opposite Police Station, Patrunivalasa</p>
+                   <p className="text-slate-500 text-sm font-google mt-1 tracking-widest uppercase">Srikakulam, Andhra Pradesh</p>
                 </div>
               </div>
 

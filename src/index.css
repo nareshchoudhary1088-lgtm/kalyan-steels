@@ -15,10 +15,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
 
-    --primary: 351 100% 26%;
+    --primary: 352 100% 20%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 43 89% 38%;
+    --secondary: 43 80% 50%;
     --secondary-foreground: 0 0% 10%;
 
     --muted: 0 0% 93%;
@@ -45,9 +45,9 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    --steel-dark: 220 15% 15%;
-    --steel-mid: 220 10% 30%;
-    --steel-light: 220 8% 65%;
+    --steel-dark: 220 25% 6%;
+    --steel-mid: 220 15% 20%;
+    --steel-light: 220 10% 60%;
     --gold: 40 90% 32%;
     --crimson: 0 72% 35%;
   }
@@ -60,7 +60,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Outfit', sans-serif;
   }
 
   h1, h2, h3 {

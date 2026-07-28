@@ -129,11 +129,11 @@ const ProjectInfoModal = ({
           </div>
           <div>
             <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1 block">Call to Action (CTA)</label>
-            <input value={form.cta} onChange={e => setForm({ ...form, cta: e.target.value })} className="w-full bg-muted border border-border rounded-lg px-3 py-2 text-sm" placeholder="Call +91 9618012403 for quotes..." />
+            <input value={form.cta} onChange={e => setForm({ ...form, cta: e.target.value })} className="w-full bg-muted border border-border rounded-lg px-3 py-2 text-sm" placeholder="Call +91 9849094570 for quotes..." />
           </div>
           <div>
             <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1 block">Alt Tag Slug</label>
-            <input value={form.alt} onChange={e => setForm({ ...form, alt: e.target.value })} className="w-full bg-muted border border-border rounded-lg px-3 py-2 text-sm" placeholder="ss-gate-gajuwaka-visakhapatnam" />
+            <input value={form.alt} onChange={e => setForm({ ...form, alt: e.target.value })} className="w-full bg-muted border border-border rounded-lg px-3 py-2 text-sm" placeholder="ss-gate-gajuwaka-Srikakulam" />
           </div>
         </div>
         <div className="flex gap-3 mt-6">

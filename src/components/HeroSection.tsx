@@ -32,37 +32,50 @@ const HeroSection = () => {
       ))}
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/95 via-[#0a0a0a]/70 to-transparent" />
+
+      {/* Subtle Industrial Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
       {/* Wave pattern at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 overflow-hidden z-10">
+      <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 overflow-hidden z-10 pointer-events-none">
         <svg viewBox="0 0 1440 96" preserveAspectRatio="none" className="w-full h-full">
           <path d="M0,96 C240,20 480,80 720,50 C960,20 1200,70 1440,30 L1440,96 Z" fill="hsl(0 0% 98%)" />
         </svg>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center px-5 sm:px-8 max-w-7xl mx-auto">
-        <div className="max-w-3xl lg:max-w-4xl w-full">
-          <p className="text-secondary uppercase tracking-[0.3em] sm:tracking-[0.45em] font-bold mb-4 text-[13.5px] sm:text-[18px] sm:whitespace-nowrap drop-shadow-md font-google">
-            Jindal Stainless Steel Pipe Supplier
-          </p>
-          <h1 className="text-[3.5rem] sm:text-7xl md:text-9xl leading-[0.9] mb-6 text-white drop-shadow-2xl font-rozha">
-            KIRAN<br />
-            <span className="text-secondary drop-shadow-lg">STEELS</span>
+      <div className="relative z-10 h-full flex items-center px-5 sm:px-10 max-w-7xl mx-auto">
+        <div className="max-w-3xl lg:max-w-4xl w-full animate-in fade-in slide-in-from-bottom-12 duration-1000 fill-mode-both" style={{ animationDelay: '200ms' }}>
+          <div className="inline-block mb-6 px-4 py-1.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-full shadow-lg">
+            <p className="text-secondary uppercase tracking-[0.2em] font-bold text-xs sm:text-sm drop-shadow-md">
+              Premium Stainless Steel Supplier
+            </p>
+          </div>
+
+          <h1 className="text-[3.5rem] sm:text-7xl md:text-[8.5rem] leading-[0.9] mb-8 text-white drop-shadow-2xl font-rozha tracking-tight">
+            KALYAN<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-[#f9d77e] drop-shadow-lg">
+              STEELS
+            </span>
           </h1>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-2 w-full max-w-xs sm:max-w-none">
+
+          <p className="text-white/70 text-lg sm:text-xl max-w-xl mb-10 font-light leading-relaxed">
+            Elevating industrial and residential architecture with bespoke, high-grade steel fabrication.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 w-full max-w-sm sm:max-w-none">
             <a
               href="#product"
-              className="px-6 sm:px-8 py-3 bg-primary text-white font-bold text-sm uppercase tracking-wide hover:bg-primary/90 transition-colors rounded-sm shadow-lg text-center"
+              className="px-8 py-4 bg-primary text-white font-bold text-sm uppercase tracking-wider hover:bg-primary/90 transition-all rounded-sm shadow-[0_0_20px_rgba(122,0,16,0.3)] hover:shadow-[0_0_30px_rgba(122,0,16,0.5)] text-center border border-primary hover:-translate-y-0.5"
             >
-              View Products
+              Explore Products
             </a>
             <a
               href="#enquiry-form"
-              className="px-6 sm:px-8 py-3 border-2 border-secondary text-secondary font-bold text-sm uppercase tracking-wide hover:bg-secondary hover:text-secondary-foreground transition-colors rounded-sm shadow-lg text-center"
+              className="px-8 py-4 bg-white/5 backdrop-blur-sm border-2 border-white/20 text-white font-bold text-sm uppercase tracking-wider hover:bg-white hover:text-black transition-all rounded-sm shadow-lg text-center hover:-translate-y-0.5"
             >
-              Get Quote
+              Request Quote
             </a>
           </div>
         </div>

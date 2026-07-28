@@ -201,7 +201,7 @@ export default function QuotationGenerator({ defaultCustomerName = "", defaultCu
                   {/* Header Section */}
                   <div className="flex items-start justify-between mb-8">
                      <div className="flex items-center">
-                        <img src={quoteLogo} alt="Kiran Steels" className="h-28 sm:h-32 w-auto object-contain" />
+                        <img src={quoteLogo} alt="Kalyan Steels" className="h-28 sm:h-32 w-auto object-contain" />
                      </div>
                      <div className="text-right">
                         <h2 className="text-4xl font-black text-primary uppercase tracking-widest mb-4">Quotation</h2>
@@ -303,7 +303,7 @@ export default function QuotationGenerator({ defaultCustomerName = "", defaultCu
                            <li>This quotation is valid for 15 days from the date of issue.</li>
                            <li>50% advance payment is mandatory to commence fabrication work.</li>
                            <li>Balance 50% payment must be cleared prior to dispatch/installation.</li>
-                           <li>Goods once sold will not be taken back. Subject to Visakhapatnam jurisdiction.</li>
+                           <li>Goods once sold will not be taken back. Subject to Srikakulam jurisdiction.</li>
                         </ul>
                      </div>
                      <div className="w-1/3 text-right">
@@ -311,7 +311,7 @@ export default function QuotationGenerator({ defaultCustomerName = "", defaultCu
                            {/* Space for signature or stamp */}
                         </div>
                         <div className="border-t-2 border-primary w-48 ml-auto pt-1.5">
-                           <p className="text-[10px] font-black uppercase tracking-widest text-primary">For Kiran Steels</p>
+                           <p className="text-[10px] font-black uppercase tracking-widest text-primary">For Kalyan Steels</p>
                            <p className="text-[8px] text-zinc-500 font-bold uppercase tracking-wider mt-0.5">Authorized Signatory</p>
                         </div>
                      </div>

@@ -44,7 +44,7 @@ const LocationPrompt = () => {
       await supabase.from("analytics").update({ 
         lat: parseFloat(item.lat), 
         lng: parseFloat(item.lon),
-        city: item.display_name.split(',')[0] + ", Visakhapatnam"
+        city: item.display_name.split(',')[0] + ", Srikakulam"
       }).eq("session_id", sessionId);
     }
     setIsVisible(false);

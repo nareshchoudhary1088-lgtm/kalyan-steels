@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown, ArrowRight, CircleDot, Sheet, DoorOpen, Building2, Layers, Glasses, Columns3, Grid2X2, Type, Activity, Home, Armchair } from "lucide-react";
-import ksLogo from "../assets/ks_logo.png";
+import ksLogo from "../assets/new_logo2.png";
 
 const productCategories = [
   { name: "Pipes & Tubes", full: "Stainless Steel Pipes & Tubes", icon: CircleDot, color: "from-blue-500 to-blue-700" },
@@ -66,23 +66,25 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm py-2"
-          : "bg-white py-3"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-2 sm:px-6 pt-2 sm:pt-4 pointer-events-none`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-10 flex items-center justify-between">
+      <div
+        className={`mx-auto flex items-center justify-between transition-all duration-500 pointer-events-auto ${scrolled
+          ? "bg-white/85 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/40 py-2 px-4 sm:px-8 rounded-full max-w-6xl"
+          : "bg-white/95 backdrop-blur-md shadow-sm border border-slate-100/50 py-3 px-5 sm:px-10 rounded-2xl max-w-7xl"
+          }`}
+      >
         {/* Brand */}
         <a href="#home" className="flex items-center gap-4 group">
           <div className="relative h-20 w-20 sm:h-20 sm:w-20 rounded-full overflow-hidden shrink-0">
             <img
               src={ksLogo}
-              alt="Kiran Steels Logo"
+              alt="Kalyan Steels Logo"
               className="w-full h-full object-cover scale-[1.05]"
             />
           </div>
           <span className="font-rozha text-primary text-3xl sm:text-4xl lg:text-[2.75rem] uppercase tracking-normal leading-none pt-1">
-            KIRAN STEELS
+            Kalyan Steels
           </span>
         </a>
 
@@ -110,8 +112,8 @@ const Navbar = () => {
                 {/* Premium Dropdown */}
                 <div
                   className={`absolute top-full right-0 pt-3 transition-all duration-300 ease-out ${productDropdownOpen
-                      ? "opacity-100 translate-y-0 pointer-events-auto"
-                      : "opacity-0 -translate-y-3 pointer-events-none"
+                    ? "opacity-100 translate-y-0 pointer-events-auto"
+                    : "opacity-0 -translate-y-3 pointer-events-none"
                     }`}
                   style={{ zIndex: 9999 }}
                 >
@@ -186,8 +188,8 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 className={`text-sm lg:text-base font-medium transition-all duration-300 hover:text-primary ${link.highlight
-                    ? "text-secondary font-bold text-base lg:text-lg"
-                    : "text-slate-700"
+                  ? "text-secondary font-bold text-base lg:text-lg"
+                  : "text-slate-700"
                   }`}
               >
                 {link.name}
@@ -208,7 +210,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-white border-t border-slate-100 px-6 py-6 flex flex-col gap-2 shadow-xl animate-in fade-in slide-in-from-top-4 duration-300">
+        <div className="md:hidden bg-white border-t border-slate-100 px-6 py-6 flex flex-col gap-2 shadow-xl animate-in fade-in slide-in-from-top-4 duration-300 pointer-events-auto">
           {links.map((link) =>
             link.hasDropdown ? (
               <div key={link.name}>
@@ -260,8 +262,8 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 className={`text-base font-bold tracking-wide py-3 px-4 rounded-sm transition-colors ${link.highlight
-                    ? "text-secondary hover:bg-secondary/5"
-                    : "text-slate-800 hover:bg-slate-50"
+                  ? "text-secondary hover:bg-secondary/5"
+                  : "text-slate-800 hover:bg-slate-50"
                   }`}
                 onClick={() => setOpen(false)}
               >

@@ -1,5 +1,5 @@
 import { Phone, Mail, MapPin } from "lucide-react";
-import ksLogo from "../assets/ks_logo.png";
+import ksLogo from "../assets/new_logo2.png";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { useState } from "react";
@@ -35,37 +35,39 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-steel-dark text-white py-14 sm:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-14 pb-12 border-b border-white/10">
+    <footer className="bg-white text-slate-800 py-16 sm:py-20 relative overflow-hidden border-t border-slate-200">
+      {/* Decorative Blur */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-10" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-10 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-16 pb-16 border-b border-slate-200">
           {/* Brand */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="relative h-20 w-20 sm:h-24 sm:w-24 shrink-0 rounded-full overflow-hidden shadow-lg border border-white/10">
+          <div className="space-y-8">
+            <div className="flex flex-col gap-4">
+              <div className="relative h-20 w-20 sm:h-24 sm:w-24 shrink-0 rounded-full overflow-hidden shadow-md border border-slate-200 bg-slate-50">
                 <img
                   src={ksLogo}
-                  alt="Kiran Steels"
-                  className="w-full h-full object-cover scale-[1.05]"
+                  alt="Kalyan Steels"
+                  className="w-full h-full object-cover scale-[1.1] filter drop-shadow-sm"
                 />
               </div>
-              <span className="font-rozha font-bold text-2xl sm:text-3xl tracking-wider text-white">
-                KIRAN STEELS
+              <span className="font-rozha font-bold text-2xl sm:text-3xl tracking-wide text-primary whitespace-nowrap drop-shadow-sm">
+                Kalyan Steels
               </span>
             </div>
-            <p className="text-white/60 text-sm leading-relaxed font-medium">
+            <p className="text-slate-500 text-sm leading-relaxed font-light">
               Your premier destination for Jindal stainless steel pipes (Grade 316, 304 & JT), plus expert fabrication works including staircase railings, high-security gates, intricate grills, and custom signage.
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="lg:pl-10">
-            <h4 className="text-secondary font-bold text-sm uppercase tracking-[0.2em] mb-6">Explore</h4>
+            <h4 className="text-primary font-bold text-sm uppercase tracking-[0.2em] mb-6">Explore</h4>
             <ul className="space-y-4">
               {["Home", "About Us", "Product", "Get Quote"].map((l) => (
                 <li key={l}>
                   <a
                     href={`#${l.toLowerCase().replace(/\s+/g, "-")}`}
-                    className="text-white/60 text-sm font-medium hover:text-secondary transition-all hover:pl-2"
+                    className="text-slate-500 text-sm font-medium hover:text-primary transition-all hover:pl-2"
                   >
                     {l}
                   </a>
@@ -76,19 +78,19 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="text-secondary font-bold text-sm uppercase tracking-[0.2em] mb-6">Contact Us</h4>
+            <h4 className="text-primary font-bold text-sm uppercase tracking-[0.2em] mb-6">Contact Us</h4>
             <div className="space-y-4">
-              <p className="text-white/60 text-sm leading-relaxed font-medium">
-                2-134/1 Opposite Police Station, Srinivas Nagar,<br />
-                Gopalapatnam, Visakhapatnam,<br />
-                Andhra Pradesh 530027
+              <p className="text-slate-500 text-sm leading-relaxed font-light">
+                856, 1, 1-37-1, Pedapadu Rd, near Bharat petroleum, Visakha A Colony,<br />
+                Patrunivalasa, Srikakulam,<br />
+                Andhra Pradesh 532001
               </p>
               <div className="space-y-2">
-                <a href="tel:+919618012403" className="text-white/60 text-[13px] hover:text-secondary block font-medium transition-colors">+91 96180 12403</a>
-                <a href="tel:+919640304230" className="text-white/60 text-[13px] hover:text-secondary block font-medium transition-colors">+91 96403 04230</a>
-                <a href="tel:+917665491606" className="text-white/60 text-[13px] hover:text-secondary block font-medium transition-colors">+91 76654 91606</a>
-                <a href="mailto:kiransteels1088@gmail.com" className="text-white/60 text-[13px] hover:text-secondary block font-medium transition-all break-all mt-4">
-                  kiransteels1088@gmail.com
+                <a href="tel:+919849094570" className="text-primary text-[13px] hover:text-primary/80 block font-medium transition-colors">+91 98490 94570</a>
+                <a href="tel:+918523026075" className="text-primary text-[13px] hover:text-primary/80 block font-medium transition-colors">+91 85230 26075</a>
+                <a href="tel:+918074425605" className="text-primary text-[13px] hover:text-primary/80 block font-medium transition-colors">+91 80744 25605</a>
+                <a href="mailto:kalyansteels44@gmail.com" className="text-primary text-[13px] hover:text-primary/80 block font-medium transition-all break-all mt-4">
+                  kalyansteels44@gmail.com
                 </a>
               </div>
             </div>
@@ -96,9 +98,9 @@ const Footer = () => {
 
           {/* Newsletter */}
           <div>
-            <h4 className="text-secondary font-bold text-sm uppercase tracking-[0.2em] mb-6">Price Alerts</h4>
+            <h4 className="text-primary font-bold text-sm uppercase tracking-[0.2em] mb-6">Price Alerts</h4>
             <div className="space-y-4">
-              <p className="text-white/60 text-sm leading-relaxed font-medium">
+              <p className="text-slate-500 text-sm leading-relaxed font-light">
                 Subscribe to get notified about steel price drops, new arrivals, and clearance sales.
               </p>
               <form 
@@ -110,12 +112,12 @@ const Footer = () => {
                   name="contact"
                   required
                   placeholder="Email or WhatsApp number" 
-                  className="bg-white/5 border border-white/10 rounded-md px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all"
+                  className="bg-slate-50 border border-slate-200 rounded-md px-4 py-3 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all font-light"
                 />
                 <button 
                   type="submit"
                   disabled={loading}
-                  className="bg-secondary text-white font-bold text-sm rounded-md px-4 py-3 hover:bg-secondary/90 transition-colors uppercase tracking-wider disabled:opacity-50"
+                  className="bg-primary text-white font-bold text-sm rounded-md px-4 py-3 hover:bg-primary/90 transition-colors uppercase tracking-wider disabled:opacity-50 shadow-sm"
                 >
                   {loading ? "Subscribing..." : "Subscribe Now"}
                 </button>
@@ -125,10 +127,10 @@ const Footer = () => {
         </div>
 
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <p className="text-white/40 text-[10px] sm:text-xs uppercase tracking-widest font-bold">© 2025 Kiran Steels. All rights reserved.</p>
+          <p className="text-slate-400 text-[10px] sm:text-xs uppercase tracking-widest font-bold">© 2025 Kalyan Steels. All rights reserved.</p>
           <div className="flex gap-4">
-            <span className="text-white/40 text-[10px] sm:text-xs uppercase tracking-widest font-bold">Visakhapatnam</span>
-            <span className="text-white/40 text-[10px] sm:text-xs uppercase tracking-widest font-bold">Andhra Pradesh</span>
+            <span className="text-slate-400 text-[10px] sm:text-xs uppercase tracking-widest font-bold">Srikakulam</span>
+            <span className="text-slate-400 text-[10px] sm:text-xs uppercase tracking-widest font-bold">Andhra Pradesh</span>
           </div>
         </div>
       </div>

@@ -550,241 +550,50 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, onClick, index, isVisible }: ProductCardProps) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const svgRef = useRef<SVGSVGElement>(null);
-  const rectRef = useRef<SVGRectElement>(null);
-
-  useEffect(() => {
-    if (!cardRef.current || !svgRef.current || !rectRef.current) return;
-
-    const resize = () => {
-      if (!cardRef.current || !svgRef.current || !rectRef.current) return;
-      const w = cardRef.current.offsetWidth;
-      const h = cardRef.current.offsetHeight;
-      svgRef.current.setAttribute('viewBox', `0 0 ${w} ${h}`);
-      svgRef.current.setAttribute('width', String(w));
-      svgRef.current.setAttribute('height', String(h));
-      rectRef.current.setAttribute('width', String(w - 2));
-      rectRef.current.setAttribute('height', String(h - 2));
-      const perim = 2 * ((w - 2) + (h - 2));
-      rectRef.current.style.strokeDasharray = String(perim);
-      rectRef.current.style.strokeDashoffset = String(perim);
-    };
-
-    resize();
-    const observer = new ResizeObserver(resize);
-    observer.observe(cardRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  const handleMouseEnter = () => {
-    if (rectRef.current) {
-      rectRef.current.style.strokeDashoffset = '0';
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (rectRef.current) {
-      rectRef.current.style.strokeDashoffset = rectRef.current.style.strokeDasharray;
-    }
-  };
-
   const settings = {
-    fade: false,
+    fade: true,
     infinite: true,
-    speed: 800,
+    speed: 1500,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 4000,
     arrows: false,
     dots: false,
     pauseOnHover: false,
-    cssEase: "cubic-bezier(0.87, 0, 0.13, 1)"
+    cssEase: "ease-in-out"
   };
 
   return (
-    <>
-      <style>{`
-        @property --angle { syntax:'<angle>'; initial-value:0deg; inherits:false; }
-        .card-custom {
-          position: relative;
-          border-radius: 14px;
-          background: #fff;
-          box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-          cursor: pointer;
-          transition: transform 0.42s cubic-bezier(0.34,1.45,0.64,1), box-shadow 0.4s ease, opacity 0.8s ease, transform 0.8s ease;
-          overflow: hidden;
-        }
-        .card-border-custom {
-          position: absolute;
-          inset: 0;
-          border-radius: 14px;
-          pointer-events: none;
-          z-index: 10;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-        .card-border-custom rect {
-          fill: none;
-          stroke: url(#blueGradient);
-          stroke-width: 2.5;
-          rx: 13;
-          transition: stroke-dashoffset 0.7s cubic-bezier(0.4,0,0.2,1);
-        }
-        .card-custom:hover .card-border-custom { opacity: 1; }
-        .card-custom::before {
-          content: '';
-          position: absolute; inset: 0;
-          border-radius: 14px;
-          box-shadow: inset 0 0 0 1.5px rgba(30,64,175,0);
-          background: radial-gradient(ellipse at 50% 0%, rgba(30,64,175,0.2) 0%, transparent 70%);
-          opacity: 0;
-          transition: opacity 0.4s ease;
-          z-index: 2;
-          pointer-events: none;
-        }
-        .card-custom:hover::before { opacity: 1; }
-        .card-custom::after {
-          content: '';
-          position: absolute;
-          top: 0; left: -80%; width: 50%; height: 100%;
-          background: linear-gradient(105deg, transparent, rgba(255,255,255,0.38), transparent);
-          transform: skewX(-14deg);
-          z-index: 3;
-          opacity: 0;
-          pointer-events: none;
-        }
-        .card-custom:hover::after { animation: shimmer-custom 0.72s ease forwards; }
-        .card-custom:hover {
-          transform: translateY(-7px) scale(1.012);
-          box-shadow: 0 18px 40px rgba(0,0,0,0.10), 0 4px 24px rgba(232,212,138,0.22);
-        }
-        .img-wrap-custom { overflow:hidden; position:relative; }
-        .card-img-custom {
-          width:100%; aspect-ratio:1/1; object-transform: scale(1);
-          transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.42s;
-          filter: brightness(0.93) saturate(0.88);
-        }
-        .card-body-custom { 
-          padding:18px 18px 20px; 
-          position:relative; 
-          background: #fff; 
-          border-top: 1px solid rgba(0,0,0,0.03);
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-        }
-        .card-body-custom::before {
-          content:'';
-          position:absolute; top:0; left:18px; right:18px; height:1.5px;
-          background: linear-gradient(90deg, transparent, #3B82F6, #1E40AF, #3B82F6, transparent);
-          transform: scaleX(0);
-          transform-origin: center;
-          transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
-          border-radius:2px;
-        }
-        .card-title-custom {
-          font-size:13px; font-weight:500; color:#1a1a2e;
-          margin-bottom:14px; line-height:1.45;
-          transition: color 0.3s;
-          font-family: 'Inter', sans-serif;
-        }
-        .btn-custom {
-          display:inline-flex; align-items:center; gap:7px;
-          background:#8b1a1a; color:#fff;
-          font-size:10.5px; font-weight:600;
-          letter-spacing:0.12em; text-transform:uppercase;
-          padding:9px 18px; border-radius:5px;
-          text-decoration:none; border:none;
-          transition: background 0.3s, box-shadow 0.3s, gap 0.25s;
-          cursor:pointer;
-          position: relative;
-          overflow: hidden;
-        }
-        .btn-custom::after {
-          content:'';
-          position:absolute; inset:0;
-          background: linear-gradient(90deg, transparent 0%, rgba(232,212,138,0.25) 50%, transparent 100%);
-          opacity:0; transition:opacity 0.3s;
-        }
-        @media (min-width: 1024px) {
-          .card-img-custom { aspect-ratio: 1/1; }
-          .card-title-custom { font-size: 12px; }
-          .card-body-custom { padding: 14px 14px 16px; }
-          
-          .card-custom:hover .card-border-custom { opacity: 1; }
-          .card-custom:hover::before { opacity: 1; }
-          .card-custom:hover::after { animation: shimmer-custom 0.72s ease forwards; }
-          .card-custom:hover {
-            transform: translateY(-7px) scale(1.012);
-            box-shadow: 0 18px 40px rgba(0,0,0,0.10), 0 4px 24px rgba(30,64,175,0.22);
-          }
-          .card-custom:hover .card-img-custom {
-            transform: scale(1.06);
-            filter: brightness(1.02) saturate(1.04);
-          }
-          .card-custom:hover .card-body-custom::before { transform: scaleX(1); }
-          .card-custom:hover .card-title-custom { color:#1e40af; }
-          .card-custom:hover .btn-custom {
-            background:#8b1a1a;
-            box-shadow: 0 4px 14px rgba(139,26,26,0.28);
-            gap:11px;
-          }
-          .card-custom:hover .btn-custom::after { opacity:1; }
-          .arr-custom { font-size:14px; line-height:1; transition:transform 0.3s; display:inline-block; }
-          .card-custom:hover .arr-custom { transform:translateX(3px); }
-        }
-        @keyframes shimmer-custom {
-          0%   { left:-80%; opacity:1; }
-          100% { left:130%; opacity:1; }
-        }
-      `}</style>
-      <div
-        ref={cardRef}
-        onClick={onClick}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        className="card-custom group"
-        style={{
-          opacity: isVisible ? 1 : 0,
-          transform: isVisible ? 'translateY(0)' : 'translateY(40px)',
-          transitionDelay: `${index * 120}ms`
-        }}
-      >
-        <svg ref={svgRef} className="card-border-custom" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#1e40af" />
-              <stop offset="100%" stopColor="#1e3a8a" />
-            </linearGradient>
-          </defs>
-          <rect ref={rectRef} x="1" y="1" rx="13" />
-        </svg>
-        <div className="img-wrap-custom">
-          <Slider {...settings} className="w-full product-card-slider">
-            {(product.frontImages || product.images).map((src: string, i: number) => (
-              <div key={i} className="outline-none">
-                <img 
-                  src={src} 
-                  className="card-img-custom object-cover block" 
-                  alt={product.name} 
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            ))}
-          </Slider>
-        </div>
-        <div className="card-body-custom flex flex-col items-start">
-          <p className="card-title-custom">
+    <div
+      onClick={onClick}
+      className={`group relative rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-700 ease-out transform ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+      }`}
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      <div className="aspect-[4/5] sm:aspect-square w-full overflow-hidden bg-white relative">
+        <Slider {...settings} className="w-full h-full [&_.slick-list]:h-full [&_.slick-track]:h-full [&_.slick-slide>div]:h-full">
+          {(product.frontImages || product.images).map((src: string, i: number) => (
+            <div key={i} className="h-full outline-none">
+              <img 
+                src={src} 
+                className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110" 
+                alt={product.name} 
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          ))}
+        </Slider>
+      </div>
+
+      <div className="absolute bottom-0 left-0 right-0 p-3 pb-4 pointer-events-none flex justify-center">
+        <div className="bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-[0_4px_10px_rgba(0,0,0,0.1)] border border-slate-100/50">
+          <h3 className="text-slate-800 font-bold text-[11px] sm:text-xs tracking-widest uppercase">
             {product.name}
-          </p>
-          <button className="btn-custom">
-            VIEW MORE <span className="arr-custom">→</span>
-          </button>
+          </h3>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
@@ -1141,7 +950,7 @@ const ProductsSection = () => {
             {/* Header */}
             <div className="bg-gradient-to-r from-[#1E3A8A] to-[#2563EB] px-8 py-5 flex items-center justify-between text-white border-b border-white/10">
               <div className="flex flex-col">
-                <h2 className="text-[24px] font-black tracking-tight leading-none mb-1 uppercase">KIRAN STEELS</h2>
+                <h2 className="text-[24px] font-black tracking-tight leading-none mb-1 uppercase">Kalyan Steels</h2>
                 <p className="text-[10px] uppercase font-bold tracking-[2px] opacity-80">PREMIUM STAINLESS STEEL SOLUTIONS</p>
               </div>
               <div className="flex items-center gap-4">
@@ -1307,7 +1116,7 @@ const ProductsSection = () => {
                           }
                         }, 100);
                       } else {
-                        window.open("https://wa.me/919618012403", "_blank");
+                        window.open("https://wa.me/919849094570", "_blank");
                       }
                     }}
                     className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-[#1E3A8A] to-[#2563EB] text-white py-4.5 rounded-[16px] font-bold text-[15px] uppercase tracking-[1.5px] shadow-[0_10px_20px_rgba(37,99,235,0.2)] hover:shadow-[0_15px_30px_rgba(37,99,235,0.3)] hover:-translate-y-0.5 active:scale-[0.98] transition-all mt-6 py-4"
@@ -1326,13 +1135,13 @@ const ProductsSection = () => {
                   <div className="bg-white/10 p-1.5 rounded-md">
                     <Phone size={12} className="text-white/80" />
                   </div>
-                  <span>+91 96180 12403</span>
+                  <span>+91 98490 94570</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="bg-white/10 p-1.5 rounded-md">
                     <MapPin size={12} className="text-white/80" />
                   </div>
-                  <span>Gopalapatnam, Visakhapatnam</span>
+                  <span>Patrunivalasa, Srikakulam</span>
                 </div>
               </div>
               <div className="flex items-center gap-2">
