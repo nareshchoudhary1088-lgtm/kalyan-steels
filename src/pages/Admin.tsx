@@ -109,7 +109,7 @@ const AdminLogin = ({ onLogin }: { onLogin: () => void }) => {
       onLogin();
     } else {
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: window.location.origin + '/kiran-secure-portal-99',
+        redirectTo: window.location.origin + '/kalyan-secure-portal-99',
       });
       setLoading(false);
       if (error) { setError(error.message); return; }
@@ -121,7 +121,7 @@ const AdminLogin = ({ onLogin }: { onLogin: () => void }) => {
     <div className="min-h-screen bg-muted flex items-center justify-center px-4">
       <div className="w-full max-w-sm bg-card border border-border rounded-xl shadow-xl p-8">
         <div className="flex flex-col items-center mb-8">
-          <img src={ksLogo} alt="Kalyan Steels" className="h-14 w-auto mb-4" />
+          <img src={ksLogo} alt="Kalyan Steel" className="h-14 w-auto mb-4" />
           <h1 className="text-xl font-black text-primary">
             {isResetMode ? "Reset Password" : "Admin Panel"}
           </h1>
@@ -136,7 +136,7 @@ const AdminLogin = ({ onLogin }: { onLogin: () => void }) => {
               type="email" name="email" autoComplete="username" required value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full border border-input rounded-lg px-4 py-2.5 text-sm bg-background focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-              placeholder="admin@kiransteels.com"
+              placeholder="admin@kalyansteels.com"
             />
           </div>
           {!isResetMode && (
@@ -208,7 +208,7 @@ const EnquiryModal = ({ enquiry, onClose, onStatusChange, onDelete }: {
               <a href={`tel:${enquiry.phone}`} className="font-bold text-foreground truncate">{enquiry.phone}</a>
             </div>
             <button
-              onClick={() => openWhatsApp(enquiry.phone, `Hello ${enquiry.name}, this is Kalyan Steels. Thank you for your enquiry about ${enquiry.product_interest || "our products"}. How can we help you today?`)}
+              onClick={() => openWhatsApp(enquiry.phone, `Hello ${enquiry.name}, this is Kalyan Steel. Thank you for your enquiry about ${enquiry.product_interest || "our products"}. How can we help you today?`)}
               className="bg-green-600 text-white p-2.5 rounded-lg hover:bg-green-700 transition-colors shadow-sm"
               title="Chat on WhatsApp"
             >
@@ -530,10 +530,10 @@ const AdminPage = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="p-2 bg-primary/5 rounded-xl border border-primary/10">
-              <img src={ksLogo} alt="Kalyan Steels" className="h-8 w-auto" />
+              <img src={ksLogo} alt="Kalyan Steel" className="h-8 w-auto" />
             </div>
             <div>
-              <p className="font-black text-foreground text-sm leading-none tracking-tight">Kalyan Steels <span className="text-primary">Admin</span></p>
+              <p className="font-black text-foreground text-sm leading-none tracking-tight">Kalyan Steel <span className="text-primary">Admin</span></p>
               <div className="flex items-center gap-1.5 mt-1">
                 <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
                 <p className="text-muted-foreground text-[9px] uppercase tracking-widest font-black">System Online</p>
@@ -939,7 +939,7 @@ const AdminPage = () => {
                       const url = window.URL.createObjectURL(blob);
                       const a = document.createElement('a');
                       a.href = url;
-                      a.download = "kiran-steels-traffic.csv";
+                      a.download = "kalyan-steels-traffic.csv";
                       a.click();
                     }}
                     className="flex flex-col items-center justify-center gap-3 p-4 rounded-xl border border-border hover:border-primary/30 hover:bg-primary/5 transition-all group"

@@ -45,7 +45,7 @@ const OurStory = () => {
                 <div className="space-y-6">
                   <h2 className="text-3xl font-rozha text-primary">The Vision of Quality</h2>
                   <p className="text-slate-700 text-lg leading-relaxed font-google">
-                    Founded in <span className="font-bold text-primary">2018</span> by <span className="font-bold text-primary">Mr. Dilip Choudhary</span>, Kalyan Steels was established with a singular mission: to provide Srikakulam with unmatched access to India's finest Jindal Stainless Steel. 
+                    Founded in <span className="font-bold text-primary">2018</span> by <span className="font-bold text-primary">Mr. Dilip Choudhary</span>, Kalyan Steel was established with a singular mission: to provide Srikakulam with unmatched access to India's finest Jindal Stainless Steel. 
                   </p>
                   <p className="text-slate-700 text-lg leading-relaxed font-google">
                     Starting as a dedicated steel distributor in Patrunivalasa, our firm quickly became synonymous with reliability. We recognized that the growing infrastructure of Andhra Pradesh required not just material, but expertise in quality grades like <span className="font-bold">304, 316, and JT</span>.
@@ -54,7 +54,7 @@ const OurStory = () => {
                 <div className="rounded-2xl overflow-hidden aspect-[4/3] shadow-2xl">
                   <img 
                     src={inventoryImg} 
-                    alt="Kalyan Steels Inventory" 
+                    alt="Kalyan Steel Inventory" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   />
                 </div>
@@ -65,7 +65,7 @@ const OurStory = () => {
                 <div className="md:order-2 space-y-6">
                   <h2 className="text-3xl font-rozha text-primary">Mastering the Art of Fabrication</h2>
                   <p className="text-slate-700 text-lg leading-relaxed font-google">
-                    Evolution is at our core. Beyond inventory, we expanded into <span className="font-bold">expert fabrication</span>, blending industrial durability with architectural beauty. Today, Kalyan Steels is the prime source for custom Stainless Steel Gates, Railings, and Glass systems in the region.
+                    Evolution is at our core. Beyond inventory, we expanded into <span className="font-bold">expert fabrication</span>, blending industrial durability with architectural beauty. Today, Kalyan Steel is the prime source for custom Stainless Steel Gates, Railings, and Glass systems in the region.
                   </p>
                   <p className="text-slate-700 text-lg leading-relaxed font-google">
                     From luxurious <span className="font-bold text-primary">Gold Coated Railings</span> to functional Main Doors and bespoke furniture, our workshop located near the Patrunivalasa Police Station serves as a hub for craftsmanship and innovation in Srikakulam's steel legacy.
@@ -111,7 +111,7 @@ const OurStory = () => {
                   "Our goal is not just to sell steel, but to build trust that lasts as long as the structures we help create."
                 </p>
                 <div className="pt-4">
-                   <p className="text-slate-700 text-lg font-google">Kalyan Steels — Opposite Police Station, Patrunivalasa</p>
+                   <p className="text-slate-700 text-lg font-google">Kalyan Steel — Opposite Police Station, Patrunivalasa</p>
                    <p className="text-slate-500 text-sm font-google mt-1 tracking-widest uppercase">Srikakulam, Andhra Pradesh</p>
                 </div>
               </div>

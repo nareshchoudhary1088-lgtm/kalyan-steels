@@ -79,12 +79,12 @@ const Navbar = () => {
           <div className="relative h-20 w-20 sm:h-20 sm:w-20 rounded-full overflow-hidden shrink-0">
             <img
               src={ksLogo}
-              alt="Kalyan Steels Logo"
+              alt="Kalyan Steel Logo"
               className="w-full h-full object-cover scale-[1.05]"
             />
           </div>
           <span className="font-rozha text-primary text-3xl sm:text-4xl lg:text-[2.75rem] uppercase tracking-normal leading-none pt-1">
-            Kalyan Steels
+            Kalyan Steel
           </span>
         </a>
 

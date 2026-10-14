@@ -34,6 +34,7 @@ const filterAssets = (pattern: string) => assetsArr
 const plainGateImages = filterAssets('plain-ss-gate');
 const modernGateImages = filterAssets('modern-ss-gate');
 const packingGateImages = filterAssets('packing-ss-gate');
+const newSteelGateImages = filterAssets('new-steel-gate');
 const compoundGateExclude = ['compound-ss-gate-1.png', 'compound-ss-gate-2.png', 'compound-ss-gate-4.png', 'compound-ss-gate-7.png', 'compound-ss-gate-10.png', 'compound-ss-gate-11.png', 'compound-ss-gate-12.png', 'compound-ss-gate-13.png', 'compound-ss-gate-15.png', 'compound-ss-gate-16.png', 'compound-ss-gate-17.png', 'compound-ss-gate-18.png', 'compound-ss-gate-19.png'];
 const plainCompoundGateImages = filterAssets('plain-compound-ss-gate');
 const woodenCompoundGateImages = filterAssets('compound-ss-gate').filter(url =>
@@ -462,10 +463,9 @@ const products = [
   {
     name: "Stainless Steel Gates",
     frontImages: frontGateImages.length > 0 ? frontGateImages : undefined,
-    images: [...plainGateImages, ...packingGateImages, ...modernGateImages],
+    images: [...newSteelGateImages, ...packingGateImages],
     subCategories: [
-      { name: "Plain Stainless Steel Gates", images: plainGateImages },
-      { name: "Modern Stainless Steel Gates", images: modernGateImages },
+      { name: "Steel Gates", images: newSteelGateImages },
       { name: "Stainless Steel Packing Gates", images: packingGateImages }
     ]
   },
@@ -565,19 +565,18 @@ const ProductCard = ({ product, onClick, index, isVisible }: ProductCardProps) =
   return (
     <div
       onClick={onClick}
-      className={`group relative rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-700 ease-out transform ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-      }`}
+      className={`group relative rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-700 ease-out transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+        }`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
       <div className="aspect-[4/5] sm:aspect-square w-full overflow-hidden bg-white relative">
         <Slider {...settings} className="w-full h-full [&_.slick-list]:h-full [&_.slick-track]:h-full [&_.slick-slide>div]:h-full">
           {(product.frontImages || product.images).map((src: string, i: number) => (
             <div key={i} className="h-full outline-none">
-              <img 
-                src={src} 
-                className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110" 
-                alt={product.name} 
+              <img
+                src={src}
+                className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
+                alt={product.name}
                 loading="lazy"
                 decoding="async"
               />
@@ -950,7 +949,7 @@ const ProductsSection = () => {
             {/* Header */}
             <div className="bg-gradient-to-r from-[#1E3A8A] to-[#2563EB] px-8 py-5 flex items-center justify-between text-white border-b border-white/10">
               <div className="flex flex-col">
-                <h2 className="text-[24px] font-black tracking-tight leading-none mb-1 uppercase">Kalyan Steels</h2>
+                <h2 className="text-[24px] font-black tracking-tight leading-none mb-1 uppercase">Kalyan Steel</h2>
                 <p className="text-[10px] uppercase font-bold tracking-[2px] opacity-80">PREMIUM STAINLESS STEEL SOLUTIONS</p>
               </div>
               <div className="flex items-center gap-4">

@@ -21,7 +21,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/kiran-secure-portal-99" element={<AdminPage />} />
+          <Route path="/kalyan-secure-portal-99" element={<AdminPage />} />
           <Route path="/our-story" element={<OurStory />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

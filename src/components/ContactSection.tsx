@@ -75,7 +75,7 @@ const ContactSection = () => {
             {/* Invisible overlay to capture clicks and add a subtle hover effect */}
             <div className="absolute inset-0 z-10 bg-transparent cursor-pointer group-hover:bg-black/5 transition-colors duration-300" />
             <iframe
-              title="Kalyan Steels Location"
+              title="Kalyan Steel Location"
               src="https://maps.google.com/maps?q=KALYAN+STEEL,+Patrunivalasa,+Andhra+Pradesh&output=embed&z=16"
               width="100%"
               height="100%"
@@ -100,7 +100,7 @@ const ContactSection = () => {
                     Srikakulam
                   </h3>
                   <p className="text-primary text-lg leading-relaxed mb-2 font-bold font-rozha tracking-wide">
-                    Kalyan Steels
+                    Kalyan Steel
                   </p>
                   <p className="text-slate-500 text-base leading-relaxed font-light">
                     856, 1, 1-37-1, Pedapadu Rd, near Bharat petroleum,<br />

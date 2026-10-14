@@ -20,7 +20,7 @@ const AboutSection = () => {
             <div className="space-y-6 relative">
               <div className="absolute -left-6 top-2 bottom-2 w-1 bg-gradient-to-b from-primary via-secondary to-transparent opacity-50 hidden sm:block rounded-full" />
               <p className="text-slate-600 text-lg leading-relaxed font-light">
-                <strong className="font-semibold text-slate-800">Kalyan Steels</strong> is the leading Jindal steel pipe supplier in Patrunivalasa, Srikakulam. We are recognized as the prime source for Jindal Stainless Steel, Carbon Steel, and Alloy Steel pipes & tubes, fittings, Welded Pipes, Flats, Angles, Bars, Rods, and Laser Sheets in premium Grades 304, 316, and JT.
+                <strong className="font-semibold text-slate-800">Kalyan Steel</strong> is the leading Jindal steel pipe supplier in Patrunivalasa, Srikakulam. We are recognized as the prime source for Jindal Stainless Steel, Carbon Steel, and Alloy Steel pipes & tubes, fittings, Welded Pipes, Flats, Angles, Bars, Rods, and Laser Sheets in premium Grades 304, 316, and JT.
               </p>
               <p className="text-slate-600 text-lg leading-relaxed font-light">
                 Srikakulam's most trusted name for custom Stainless Steel Gates, Grills, Railings, Glass Railings, Compound Gates, Balcony Railings, Main Doors, Gold Coated Railings, Signboards, Dining Tables, and Chairs.
@@ -42,7 +42,7 @@ const AboutSection = () => {
             <div className="relative overflow-hidden rounded-[2rem] rounded-tr-[5rem] shadow-2xl h-80 sm:h-[500px] border border-slate-200">
               <img
                 src={aboutShop}
-                alt="Kalyan Steels shop"
+                alt="Kalyan Steel shop"
                 loading="lazy"
                 decoding="async"
                 width={800}

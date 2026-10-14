@@ -8,7 +8,7 @@ import { VitePWA } from "vite-plugin-pwa";
 export default defineConfig(({ mode }) => ({
   server: {
     host: true,
-    port: 2662,
+    port: 1088,
     strictPort: true,
     hmr: {
       overlay: false,
@@ -23,8 +23,8 @@ export default defineConfig(({ mode }) => ({
         navigateFallbackDenylist: [/^\/sitemap\.xml$/, /^\/robots\.txt$/]
       },
       manifest: {
-        name: 'Kiran Steels',
-        short_name: 'KiranSteels',
+        name: 'Kalyan Steel',
+        short_name: 'KalyanSteel',
         description: 'Premium Jindal Steel Pipes and Fabrication',
         theme_color: '#ffffff',
         background_color: '#ffffff',

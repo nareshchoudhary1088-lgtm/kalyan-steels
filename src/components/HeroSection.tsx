@@ -56,7 +56,7 @@ const HeroSection = () => {
           <h1 className="text-[3.5rem] sm:text-7xl md:text-[8.5rem] leading-[0.9] mb-8 text-white drop-shadow-2xl font-rozha tracking-tight">
             KALYAN<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-[#f9d77e] drop-shadow-lg">
-              STEELS
+              STEEL
             </span>
           </h1>
 

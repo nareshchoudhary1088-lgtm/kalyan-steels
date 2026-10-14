@@ -9,6 +9,7 @@ type LineItem = {
    description: string;
    qty: number | "";
    unit: string;
+   inches?: number | "";
    rate: number | "";
 };
 
@@ -45,20 +46,20 @@ export default function QuotationGenerator({ defaultCustomerName = "", defaultCu
    });
 
    const [items, setItems] = useState<LineItem[]>([
-      { id: "1", description: "", qty: "", unit: "RFT", rate: "" }
+      { id: "1", description: "", qty: "", unit: "RFT", inches: "", rate: "" }
    ]);
 
    const [taxRate, setTaxRate] = useState(0); // Default 0% GST
    const [discount, setDiscount] = useState(0);
 
    const addItem = () => {
-      setItems([...items, { id: Math.random().toString(), description: "", qty: "", unit: "Kg", rate: "" }]);
+      setItems([...items, { id: Math.random().toString(), description: "", qty: "", unit: "Kg", inches: "", rate: "" }]);
    };
 
-   const updateItem = (id: string, field: keyof LineItem, value: any) => {
+   const updateItem = (id: string, field: keyof LineItem, value: string | number) => {
       setItems(items.map(i => {
          if (i.id === id) {
-            let updatedItem = { ...i, [field]: value };
+            const updatedItem = { ...i, [field]: value };
             
             if (field === 'description') {
                const desc = value as string;
@@ -82,14 +83,19 @@ export default function QuotationGenerator({ defaultCustomerName = "", defaultCu
       setItems(items.filter(i => i.id !== id));
    };
 
-   const subtotal = items.reduce((sum, item) => sum + (item.qty * item.rate), 0);
+   const subtotal = items.reduce((sum, item) => {
+      const q = Number(item.qty) || 0;
+      const r = Number(item.rate) || 0;
+      const inch = item.unit === "Inch" && item.inches ? Number(item.inches) : 1;
+      return sum + (q * inch * r);
+   }, 0);
    const taxAmount = (subtotal - discount) * (taxRate / 100);
    const grandTotal = subtotal - discount + taxAmount;
 
    const handlePrint = () => {
       localStorage.setItem("lastQuoteNumber", quoteNumber);
       const originalTitle = document.title;
-      document.title = customerName ? `Kiran_Steels_Quotation_${customerName.trim().replace(/\s+/g, '_')}` : `Kiran_Steels_Quotation_${quoteNumber}`;
+      document.title = customerName ? `Kalyan_Steels_Quotation_${customerName.trim().replace(/\s+/g, '_')}` : `Kalyan_Steels_Quotation_${quoteNumber}`;
       window.print();
       setTimeout(() => {
          document.title = originalTitle;
@@ -148,8 +154,11 @@ export default function QuotationGenerator({ defaultCustomerName = "", defaultCu
                   {items.map((item, index) => (
                      <div key={item.id} className="flex gap-2 items-start">
                         <div className="flex-1 grid grid-cols-12 gap-1.5">
-                           <input type="text" list="predefined-items" placeholder="Description" value={item.description} onChange={(e) => updateItem(item.id, 'description', e.target.value)} className="col-span-5 bg-card border border-border rounded-lg px-2 py-2 text-sm focus:outline-none focus:border-primary/50" />
+                           <input type="text" list="predefined-items" placeholder="Description" value={item.description} onChange={(e) => updateItem(item.id, 'description', e.target.value)} className={`${item.unit === "Inch" ? "col-span-4" : "col-span-5"} bg-card border border-border rounded-lg px-2 py-2 text-sm focus:outline-none focus:border-primary/50`} />
                            <input type="number" placeholder="Qty" value={item.qty} onChange={(e) => updateItem(item.id, 'qty', e.target.value ? Number(e.target.value) : "")} className="col-span-2 bg-card border border-border rounded-lg px-2 py-2 text-sm focus:outline-none [&::-webkit-inner-spin-button]:appearance-none" />
+                           {item.unit === "Inch" && (
+                              <input type="number" placeholder="Inches" value={item.inches || ""} onChange={(e) => updateItem(item.id, 'inches', e.target.value ? Number(e.target.value) : "")} className="col-span-2 bg-card border border-border rounded-lg px-2 py-2 text-sm focus:outline-none [&::-webkit-inner-spin-button]:appearance-none" />
+                           )}
                            <select value={item.unit} onChange={(e) => updateItem(item.id, 'unit', e.target.value)} className="col-span-2 bg-card border border-border rounded-lg px-1 py-2 text-xs focus:outline-none">
                               <option value="Kg">Kg</option>
                               <option value="RFT">RFT</option>
@@ -157,7 +166,7 @@ export default function QuotationGenerator({ defaultCustomerName = "", defaultCu
                               <option value="Piece">Piece</option>
                               <option value="Inch">Inch</option>
                            </select>
-                           <input type="number" placeholder="Rate" value={item.rate} onChange={(e) => updateItem(item.id, 'rate', e.target.value ? Number(e.target.value) : "")} className="col-span-3 bg-card border border-border rounded-lg px-2 py-2 text-sm focus:outline-none [&::-webkit-inner-spin-button]:appearance-none" />
+                           <input type="number" placeholder="Rate" value={item.rate} onChange={(e) => updateItem(item.id, 'rate', e.target.value ? Number(e.target.value) : "")} className={`${item.unit === "Inch" ? "col-span-2" : "col-span-3"} bg-card border border-border rounded-lg px-2 py-2 text-sm focus:outline-none [&::-webkit-inner-spin-button]:appearance-none`} />
                         </div>
                         <button onClick={() => removeItem(item.id)} className="p-2.5 text-muted-foreground hover:text-destructive hover:bg-destructive/10 rounded-lg transition-colors mt-0.5">
                            <Trash2 size={16} />
@@ -201,7 +210,7 @@ export default function QuotationGenerator({ defaultCustomerName = "", defaultCu
                   {/* Header Section */}
                   <div className="flex items-start justify-between mb-8">
                      <div className="flex items-center">
-                        <img src={quoteLogo} alt="Kalyan Steels" className="h-28 sm:h-32 w-auto object-contain" />
+                        <img src={quoteLogo} alt="Kalyan Steel" className="h-28 sm:h-32 w-auto object-contain" />
                      </div>
                      <div className="text-right">
                         <h2 className="text-4xl font-black text-primary uppercase tracking-widest mb-4">Quotation</h2>
@@ -251,15 +260,23 @@ export default function QuotationGenerator({ defaultCustomerName = "", defaultCu
                            </tr>
                         </thead>
                         <tbody>
-                           {items.map((item, i) => (
-                              <tr key={item.id} className="border-b border-primary/10 hover:bg-primary/5 transition-colors">
-                                 <td className="py-3 px-3 text-zinc-900 text-xs text-center border-r border-primary/10 font-bold bg-primary/5">{i + 1}</td>
-                                 <td className="py-3 px-4 font-semibold text-foreground border-r border-primary/10 text-xs">{item.description || "—"}</td>
-                                 <td className="py-3 px-3 text-foreground text-right border-r border-primary/10 text-xs font-medium">{item.qty} <span className="text-[9px] text-zinc-500 ml-0.5">{item.unit}</span></td>
-                                 <td className="py-3 px-3 text-foreground text-right border-r border-primary/10 text-xs font-medium">{item.rate.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</td>
-                                 <td className="py-3 px-4 font-black text-foreground text-right text-xs">{(item.qty * item.rate).toLocaleString('en-IN', { minimumFractionDigits: 2 })}</td>
-                              </tr>
-                           ))}
+                           {items.map((item, i) => {
+                              const q = Number(item.qty) || 0;
+                              const r = Number(item.rate) || 0;
+                              const inch = item.unit === "Inch" && item.inches ? Number(item.inches) : 1;
+                              const amount = q * inch * r;
+                              return (
+                                 <tr key={item.id} className="border-b border-primary/10 hover:bg-primary/5 transition-colors">
+                                    <td className="py-3 px-3 text-zinc-900 text-xs text-center border-r border-primary/10 font-bold bg-primary/5">{i + 1}</td>
+                                    <td className="py-3 px-4 font-semibold text-foreground border-r border-primary/10 text-xs">{item.description || "—"}</td>
+                                    <td className="py-3 px-3 text-foreground text-right border-r border-primary/10 text-xs font-medium">
+                                       {item.qty} {item.unit === "Inch" && item.inches ? <span className="text-[10px] text-zinc-500 mx-0.5">× {item.inches}"</span> : ""} <span className="text-[9px] text-zinc-500 ml-0.5">{item.unit}</span>
+                                    </td>
+                                    <td className="py-3 px-3 text-foreground text-right border-r border-primary/10 text-xs font-medium">{r.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</td>
+                                    <td className="py-3 px-4 font-black text-foreground text-right text-xs">{amount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</td>
+                                 </tr>
+                              );
+                           })}
                         </tbody>
                      </table>
                   </div>
@@ -311,7 +328,7 @@ export default function QuotationGenerator({ defaultCustomerName = "", defaultCu
                            {/* Space for signature or stamp */}
                         </div>
                         <div className="border-t-2 border-primary w-48 ml-auto pt-1.5">
-                           <p className="text-[10px] font-black uppercase tracking-widest text-primary">For Kalyan Steels</p>
+                           <p className="text-[10px] font-black uppercase tracking-widest text-primary">For Kalyan Steel</p>
                            <p className="text-[8px] text-zinc-500 font-bold uppercase tracking-wider mt-0.5">Authorized Signatory</p>
                         </div>
                      </div>

@@ -46,12 +46,12 @@ const Footer = () => {
               <div className="relative h-20 w-20 sm:h-24 sm:w-24 shrink-0 rounded-full overflow-hidden shadow-md border border-slate-200 bg-slate-50">
                 <img
                   src={ksLogo}
-                  alt="Kalyan Steels"
+                  alt="Kalyan Steel"
                   className="w-full h-full object-cover scale-[1.1] filter drop-shadow-sm"
                 />
               </div>
               <span className="font-rozha font-bold text-2xl sm:text-3xl tracking-wide text-primary whitespace-nowrap drop-shadow-sm">
-                Kalyan Steels
+                Kalyan Steel
               </span>
             </div>
             <p className="text-slate-500 text-sm leading-relaxed font-light">
@@ -127,7 +127,7 @@ const Footer = () => {
         </div>
 
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <p className="text-slate-400 text-[10px] sm:text-xs uppercase tracking-widest font-bold">© 2025 Kalyan Steels. All rights reserved.</p>
+          <p className="text-slate-400 text-[10px] sm:text-xs uppercase tracking-widest font-bold">© 2025 Kalyan Steel. All rights reserved.</p>
           <div className="flex gap-4">
             <span className="text-slate-400 text-[10px] sm:text-xs uppercase tracking-widest font-bold">Srikakulam</span>
             <span className="text-slate-400 text-[10px] sm:text-xs uppercase tracking-widest font-bold">Andhra Pradesh</span>
